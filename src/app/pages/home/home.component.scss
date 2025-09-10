@@ -1,0 +1,373 @@
+@use 'colors' as *;
+
+.home {
+    width: 100vw;
+    height: 100vh;
+    background-color: $color-gray-secondary;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+
+    .sidebar-profile {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        background-color: #000000aa;
+        display: flex;
+        justify-content: end;
+        z-index: 9999999;
+        .bar {
+            width: 400px;
+            height: 100vh;
+            background-color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            gap: 2rem;
+            div {
+                margin-top: 30px;
+                width: 70%;
+                height: 20%;
+                box-shadow: 0px 2px 24px 0px #00000014;
+                border-radius: 24px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                > div {
+                    box-shadow: none;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    border: 1px solid rgb(215, 215, 215);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+            p {
+                width: 80%;
+                text-align: start;
+                background-color: #FAFAFA;
+                padding: 12px 14px;
+                text-align: start;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .sidebar {
+        width: 279px;
+        height: 100vh;
+        left: 0;
+        top: 0;
+        background-color: $color-blue-primary;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        color: $color-white;
+        .item-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: $color-white;
+            height: 100px;
+        }
+        .sections {
+            width: 100%;
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+            position: relative;
+
+            .section-item {
+                padding: 20px 30px;
+                cursor: pointer;
+                border: 1px solid transparent;
+                font-weight: 600;
+                font-size: 1rem;
+                &:hover {
+                    background-color: $color-blue-secondary;
+                    border-left: 1px solid #FFFFFF;
+                }
+            }
+        }
+    }
+
+    .content-page {
+        width: 100%;
+        height: 100%;
+
+        header {
+            width: 100%;
+            height: 127px;
+            background-color: $color-white;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            position: relative;
+
+            .header-item {
+                .profile-icon {
+                    background-color: rgb(216, 216, 216);
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    border: 1px solid #111111;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 1.1rem;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .content {
+            width: 100%;
+            height: 84%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #F5F6F7;
+            .panel {
+                width: 85%;
+                height: 85%;
+                background-color: #FAFBFC;
+                border-radius: 19.23px;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+
+                .panel-header {
+                    display: flex;
+                    flex-direction: row;
+
+                    .panel-header-title {
+                        flex: 4;
+                        h3 {
+                            font-weight: 600;
+                            font-size: 40.56px;
+                            color: #001854;
+                        }
+                        p {
+                            font-weight: 400;
+                            font-size: 24px;
+                            color: #363840;
+                            margin: 10px 0;
+                        }
+                    }
+                    .panel-header-version {
+                        flex: 1;
+                        display: flex;
+                        justify-content: center;
+                        align-items: start;
+                        span {
+                            width: 200px;
+                            height: 23px;
+                            background-color: #EAEAED;
+                            padding: 10px 15px;
+                            border-radius: 100px;
+                            font-weight: 500;
+                            font-size: 18px;
+                            color: #363840;
+                        }
+                    }
+                }
+                .panel-content {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    gap: 1rem;
+
+                    .personal-data {
+                        flex: 2;
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
+
+                        .my-points {
+                            width: 100%;
+                            height: 100%;
+                            background-color: #002173;
+                            border-radius: 12px;
+                            .my-points-header {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                padding: 20px;
+                                p {
+                                    font-weight: 500;
+                                    font-size: 18px;
+                                    color: #FFFFFF;
+                                }
+                            }
+                            .my-points-data {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                padding: 20px;
+                                p {
+                                    font-weight: 700;
+                                    font-size: 44px;
+                                    color: #FFFFFF;
+                                }
+                            }
+                        }
+                        .my-benefits {
+                            width: 100%;
+                            height: 100%;
+                            background-color: #002173;
+                            background-color: #FFFFFF;
+                            border-radius: 12px;
+                            display: flex;
+                            flex-direction: column;
+
+                            .my-benefits-header {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                padding: 20px;
+                                h3 {
+                                    font-weight: 700;
+                                    font-size: 24px;
+                                    color: #363840;
+                                }
+                                p {
+                                    font-size: 24px;
+                                    font-weight: 500;
+                                    color: #363840;
+                                }
+                            }
+                            .my-benefits-data {
+                                width: 100%;
+                                height: 100%;
+                                display: flex;
+                                flex-direction: row;
+                                gap: 1rem;
+                                padding: 20px;
+                                .my-benefits-data-item {
+                                    width: 241px;
+                                    height: 204px;
+                                    background-color: #F8F8F8;
+                                    border-radius: 12px;
+                                    box-shadow: 0px 2px 24px 0px #00000014;
+
+                                    .my-benefits-data-item-img {
+                                        width: 100%;
+                                        height: 50%;
+                                        background-color: #363840;
+                                        border-radius: 12px 12px 0 0;
+                                        position: relative;
+                                        span {
+                                            position: absolute;
+                                            background-color: #14A155;
+                                            border-radius: 100px;
+                                            color: #FFFFFF;
+                                            font-weight: 500;
+                                            font-size: 10px;
+                                            top: 7%;
+                                            left: 2%;
+                                            padding: 7px 10px;
+                                        }
+                                    }
+                                    .my-benefits-data-item-data {
+                                        display: flex;
+                                        flex-direction: column;
+                                        gap: .8rem;
+                                        .my-benefits-data-item-data-price {
+                                            display: flex;
+                                            flex-direction: row;
+                                            justify-content: space-between;
+                                            padding: 10px;
+                                            p {
+                                                font-size: 12px;
+                                                font-weight: 400;
+                                                color: #686868;
+                                            }
+                                            h3 {
+                                                font-size: 12px;
+                                                font-weight: 700;
+                                                color: #363840;
+                                            }
+                                        }
+                                        p {
+                                            font-size: 12px;
+                                            font-weight: 500;
+                                            color: #363840;
+                                            text-align: center;
+                                        }
+                                        h3 {
+                                            color: #001F6D;
+                                            font-weight: 700;
+                                            font-size: 14px;
+                                            text-align: center;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .my-insignia {
+                        flex: 1;
+                        width: 100%;
+                        height: 100%;
+                        background-color: #4C6DB4;
+                        border-radius: 12px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        color: #FFFFFF;
+                        .my-insignia-data {
+                            padding: 20px;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 1.2rem;
+                            p {
+                                font-size: 18px;
+                                font-weight: 500;
+                            }
+                            h3 {
+                                font-weight: 500;
+                                font-size: 56px;
+                            }
+                            span {
+                                font-size: 18px;
+                                font-weight: 700;
+                            }
+                        }
+                        .my-insignia-btn {
+                            padding: 40px 0;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            button {
+                                color: #FFFFFF;
+                                width: 270px;
+                                height: 67px;
+                                border-radius: 100px;
+                                border: 2px solid #FFFFFF;
+                                outline: none;
+                                background-color: #4C6DB4;
+                                font-weight: 700;
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

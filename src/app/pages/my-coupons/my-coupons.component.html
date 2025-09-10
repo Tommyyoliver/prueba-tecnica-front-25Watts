@@ -1,0 +1,79 @@
+<div class="home">
+    @if(showSidebarProfile) {
+        <div class="sidebar-profile" (click)="handlerShowSidebarProfile(false)">
+            <div class="bar" (click)="$event.stopPropagation()">
+                <div>
+                    <div>U</div>
+                    <span>Username</span>
+                </div>
+                <p>Editar Perfil</p>
+                <p (click)="logout()">Cerrar Sesión</p>
+            </div>
+        </div>
+    }
+    <div class="sidebar">
+        <div class="item-logo">LOGO</div>
+        <div class="sections">
+            <div class="section-item" (click)="goTo('home')">Inicio</div>
+            <div class="section-item">Mi Cuenta</div>
+            <div class="section-item">Mis beneficios</div>
+            <div class="section-item section-selected" (click)="goTo('coupons')">Mis cupones</div>
+            <div class="section-item">Recomendá</div>
+        </div>
+    </div>
+
+    <section class="content-page">
+        <header>
+            <div class="header-item">
+                <button></button>
+                <button></button>
+            </div>
+            <div class="header-item">
+                <button></button>
+                <button></button>
+            </div>
+            <div class="header-item">
+                <button></button>
+                <div class="profile-icon" (click)="handlerShowSidebarProfile(true)">
+                    U
+                </div>
+            </div>
+        </header>
+        <article class="content">
+            <div class="panel">
+                
+                <div class="panel-header">
+                    <div class="panel-header-title">
+                        <h3>Mis cupones</h3>
+                        <p>Una galería con todos los beneficios disponibles para vos por ser parte de la plataforma.</p>
+                    </div>
+                </div>
+                <div class="panel-content">
+                    <div class="personal-data">
+                        <div class="personal-data-header">
+                            <p>DISPONIBLES</p>
+                            <p>CASH</p>
+                            <p>USADOS</p>
+                        </div>
+                        <div class="personal-data-tickets">
+                            @for(ticket of coupons; track ticket.id) {
+                                <div class="personal-data-tickets-item">
+                                    <span class="circle-left"></span>
+                                    <span class="circle-right"></span>
+                                    <div class="personal-data-tickets-item-img"></div>
+                                    <div class="personal-data-tickets-item-data">
+                                        <h3>{{ ticket.description }}</h3>
+                                        <p>Vence: {{ ticket.expirationDate }}</p>
+                                        <button (click)="useCoupon(ticket)" [disabled]="!ticket.active">USAR</button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </article>
+    </section>
+</div>

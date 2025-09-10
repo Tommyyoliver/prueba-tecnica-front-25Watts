@@ -1,0 +1,133 @@
+<div class="home">
+    <div class="sidebar">
+        <div class="item-logo">25Watts</div>
+        <div class="sections">
+            <div class="section-item" (click)="goTo('home')">Inicio</div>
+            <div class="section-item">Usuarios</div>
+            <div class="section-item">Redes</div>
+            <div class="section-item section-selected" (click)="goTo('admin/coupons')">Beneficios</div>
+            <div class="section-item" (click)="logout()">Cerrar Sesión</div>
+        </div>
+    </div>
+
+    <section class="content-page">
+        <header>
+            <div class="header-item">
+                <button></button>
+                <button></button>
+            </div>
+            <div>
+                <h1>25Watts</h1>
+            </div>
+            <div class="header-item">
+                <button></button>
+                <button></button>
+            </div>
+        </header>
+        <article class="content">
+            
+            <ng-container *ngIf="!showPanel; else panelTemplate">
+                <div class="beneficios-container">
+                
+                    <!-- Buscador y botones -->
+                    <div class="header">
+                    <input [(ngModel)]="busqueda" type="text" placeholder="Buscador" class="buscador" />
+                    <button (click)="crearNuevo()" class="btn-primary">CREAR NUEVO BENEFICIO</button>
+                    </div>
+
+                    <!-- Filtros -->
+                    <div class="filters">
+                    <!-- Estado -->
+                    <div class="controles">
+                        <div class="dropdown" [class.open]="abrirEstado">
+                        <button class="dropdown-btn" (click)="toggle('estado', $event)">ESTADO<span class="chev"></span></button>
+                        <div class="dropdown-menu" (click)="$event.stopPropagation()">
+                            <p class="menu-title">Filtra por estados</p>
+                            <label class="menu-item">
+                            <input type="radio" name="estado" [(ngModel)]="filtroEstado" value="TODOS" /> <span>Todos</span>
+                            </label>
+                            <label class="menu-item">
+                            <input type="radio" name="estado" [(ngModel)]="filtroEstado" value="ACTIVO" /> <span>Activos</span>
+                            </label>
+                            <label class="menu-item">
+                            <input type="radio" name="estado" [(ngModel)]="filtroEstado" value="INACTIVO" /> <span>Inactivos</span>
+                            </label>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- Ordenar -->
+                    <div class="dropdown" [class.open]="abrirOrden">
+                        <button class="dropdown-btn" (click)="toggle('orden', $event)">ORDENAR POR<span class="chev"></span></button>
+                        <div class="dropdown-menu" (click)="$event.stopPropagation()">
+                        <p class="menu-title">Ordenar lista</p>
+                        <button class="menu-btn" (click)="setOrden('fecha-asc')">Fecha (antiguo → nuevo)</button>
+                        <button class="menu-btn" (click)="setOrden('fecha-desc')">Fecha (nuevo → antiguo)</button>
+                        <button class="menu-btn" (click)="setOrden('valor-asc')">Valor (menor → mayor)</button>
+                        <button class="menu-btn" (click)="setOrden('valor-desc')">Valor (mayor → menor)</button>
+                        <button class="menu-btn" (click)="setOrden('estado')">Estado (Activos primero)</button>
+                        <button class="menu-btn muted" (click)="setOrden('ninguno')">Sin orden</button>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- Tabla -->
+                    <table>
+                    <thead>
+                        <tr>
+                        <th>Código</th>
+                        <th>Descripción</th>
+                        <th>Valor</th>
+                        <th>Fecha Expiración</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let c of beneficiosProcesados">
+                        <td>{{ c.id }}</td>
+                        <td>{{ c.description }}</td>
+                        <td>{{ c.value }}</td>
+                        <td>{{ c.expiration_date | date:'MM/dd/yyyy' }}</td>
+                        <td>
+                            <span class="badge"
+                                    [class.activo]="c.active && !c.expired"
+                                    [class.inactivo]="!c.active && !c.expired"
+                                    [class.expirado]="c.expired">
+                                {{ c.expired ? 'EXPIRADO' : (c.active ? 'ACTIVO' : 'INACTIVO') }}
+                            </span>
+                        </td>
+                        <td class="acciones">
+                            <button class="icon-btn edit" (click)="editar(c)">✎</button>
+                            <button class="icon-btn del" (click)="eliminar(c)">🗑</button>
+                        </td>
+                        </tr>
+                    </tbody>
+                    </table>
+
+                    <!-- Paginador -->
+                    <div class="pagination">
+                    <button (click)="cambiarPagina(currentPage - 1)" [disabled]="currentPage === 1">&lt;</button>
+                    <button *ngFor="let page of [].constructor(totalPages); let i = index"
+                            (click)="cambiarPagina(i+1)"
+                            [class.active]="currentPage === i+1">
+                        {{ i+1 }}
+                    </button>
+                    <button (click)="cambiarPagina(currentPage + 1)" [disabled]="currentPage === totalPages">&gt;</button>
+                    </div>
+
+                </div>
+            </ng-container>
+
+                <!-- 📌 Plantilla para el panel -->
+                <ng-template #panelTemplate>
+                    <app-coupon-panel 
+                        [coupon]="selectedCoupon"
+                        (cerrar)="cerrarPanel($event)"
+                    />
+                </ng-template>
+
+
+        </article>
+    </section>
+</div>

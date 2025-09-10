@@ -1,0 +1,133 @@
+<div class="home">
+    @if(showSidebarProfile) {
+        <div class="sidebar-profile" (click)="handlerShowSidebarProfile(false)">
+            <div class="bar" (click)="$event.stopPropagation()">
+                <div>
+                    <div>U</div>
+                    <span>Username</span>
+                </div>
+                <p>Editar Perfil</p>
+                <p (click)="logout()">Cerrar Sesión</p>
+            </div>
+        </div>
+    }
+    <div class="sidebar">
+        <div class="item-logo">LOGO</div>
+        <div class="sections">
+            <div class="section-item section-selected" (click)="goTo('home')">Inicio</div>
+            <div class="section-item">Mi Cuenta</div>
+            <div class="section-item">Mis beneficios</div>
+            <div class="section-item" (click)="goTo('coupons')">Mis cupones</div>
+            <div class="section-item">Recomendá</div>
+        </div>
+    </div>
+
+    <section class="content-page">
+        <header>
+            <div class="header-item">
+                <button></button>
+                <button></button>
+            </div>
+            <div class="header-item">
+                <button></button>
+                <button></button>
+            </div>
+            <div class="header-item">
+                <button></button>
+                <div class="profile-icon" (click)="handlerShowSidebarProfile(true)">
+                    U
+                </div>
+            </div>
+        </header>
+        <article class="content">
+            <div class="panel">
+                
+                <div class="panel-header">
+                    <div class="panel-header-title">
+                        <h3>Bienvenido, Juan Morales</h3>
+                        <p>Aquí mostrará un resumen de tu cuenta, saldo y beneficios destacados.</p>
+                    </div>
+                    <div class="panel-header-version">
+                        <span>ÚLTIMA VERSIÓN: 0.1.0</span>
+                    </div>
+                </div>
+                <div class="panel-content">
+                    <div class="personal-data">
+                        <div class="my-points">
+                            <div class="my-points-header">
+                                <p>MIS PUNTOS</p>
+                                <p>MI NIVEL</p>
+                            </div>
+                            <div class="my-points-data">
+                                <p>100 PUNTOS</p>
+                                <p>Nivel 1</p>
+                            </div>
+                        </div>
+                        <div class="my-benefits">
+                            <div class="my-benefits-header">
+                                <h3>BENEFICIOS Y EXPERIENCIAS</h3>
+                                <p>Ver todo</p>
+                            </div>
+                            <div class="my-benefits-data">
+
+                                <div class="my-benefits-data-item">
+                                    <div class="my-benefits-data-item-img">
+                                        <span>BENEFICIO</span>
+                                    </div>
+                                    <div class="my-benefits-data-item-data">
+                                        <div class="my-benefits-data-item-data-price">
+                                            <p>Tope de descuento</p>
+                                            <h3>$5000</h3>
+                                        </div>
+                                        <p>10% de dto. por unirte a Loremipsum.</p>
+                                        <h3>QUIERO EL CUPÓN</h3>
+                                    </div>
+                                </div>
+                                <div class="my-benefits-data-item">
+                                    <div class="my-benefits-data-item-img">
+                                        <span>BENEFICIO</span>
+                                    </div>
+                                    <div class="my-benefits-data-item-data">
+                                        <div class="my-benefits-data-item-data-price">
+                                            <p>Tope de descuento</p>
+                                            <h3>$5000</h3>
+                                        </div>
+                                        <p>10% de dto. por unirte a Loremipsum.</p>
+                                        <h3>QUIERO EL CUPÓN</h3>
+                                    </div>
+                                </div>
+                                <div class="my-benefits-data-item">
+                                    <div class="my-benefits-data-item-img">
+                                        <span>BENEFICIO</span>
+                                    </div>
+                                    <div class="my-benefits-data-item-data">
+                                        <div class="my-benefits-data-item-data-price">
+                                            <p>Tope de descuento</p>
+                                            <h3>$5000</h3>
+                                        </div>
+                                        <p>10% de dto. por unirte a Loremipsum.</p>
+                                        <h3>QUIERO EL CUPÓN</h3>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="my-insignia">
+                        <div class="my-insignia-data">
+                            <p>TUS INSIGNIAS</p>
+                            <h3>0 de 4</h3>
+                            <span>¿Quéres obtener 200 puntos?</span>
+                            <p>Registrá 4 visitas en nuestras tiendas de Lorem Ipsum is a Met.</p>
+                        </div>
+                        <div class="my-insignia-btn">
+                            <button>REGISTRAR</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </article>
+    </section>
+</div>

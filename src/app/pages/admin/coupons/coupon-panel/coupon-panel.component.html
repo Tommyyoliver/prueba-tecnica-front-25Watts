@@ -1,0 +1,38 @@
+<!-- coupon-panel.component.html -->
+<div class="background-panel">
+    <div class="panel-container">
+      <h2>{{ isEditMode ? 'Editar Cupón' : 'Crear Cupón' }}</h2>
+    
+      <form (ngSubmit)="onSubmit()" [formGroup]="couponForm" class="coupon-form">
+    
+        <div class="form-group">
+          <label for="description">Descripción</label>
+          <input id="description" type="text" formControlName="description" />
+        </div>
+    
+        <div class="form-group">
+          <label for="value">Valor</label>
+          <input id="value" type="number" formControlName="value" />
+        </div>
+    
+        <div class="form-group">
+          <label for="expiration_date">Fecha de Expiración</label>
+          <input id="expiration_date" type="date" formControlName="expiration_date" />
+        </div>
+    
+        <div class="form-group checkbox">
+          <label>
+            <input type="checkbox" formControlName="active" />
+            Activo
+          </label>
+        </div>
+    
+        <div class="form-actions">
+          <button type="submit" class="btn-save">
+            {{ isEditMode ? 'Guardar cambios' : 'Crear cupón' }}
+          </button>
+          <button type="button" class="btn-cancel" (click)="onCancel()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+</div>
