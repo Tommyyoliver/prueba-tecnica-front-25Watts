@@ -34,6 +34,10 @@ cd frontend-coupons
 npm install
 ng serve
 ```
+## 📦 Credenciales del Login
+
+username: admin@gmail.com
+password: admin
 
 ## 📦 Build para producción
 ```bash
