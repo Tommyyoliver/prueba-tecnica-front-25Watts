@@ -39,6 +39,8 @@ ng serve
 username: admin@gmail.com
 password: admin
 
+página para la administración de productos admin/coupons
+
 ## 📦 Build para producción
 ```bash
 ng build --configuration production
