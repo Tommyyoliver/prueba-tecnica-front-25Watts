@@ -34,7 +34,7 @@ describe('CouponsService', () => {
 
     const result = await service.getAllCoupons();
     expect(result).toEqual(mockCoupons);
-    expect(requestServiceSpy.getRequest).toHaveBeenCalledOnceWith('http://localhost:3000/coupons');
+    expect(requestServiceSpy.getRequest).toHaveBeenCalledOnceWith('http://prueba-tecnica-back-25watts-production.up.railway.app/coupons');
   });
 
   it('debería crear un cupón (createCoupon)', async () => {
@@ -44,7 +44,7 @@ describe('CouponsService', () => {
 
     const result = await service.createCoupon(body);
     expect(result).toEqual(mockResponse);
-    expect(requestServiceSpy.postRequest).toHaveBeenCalledOnceWith('http://localhost:3000/create-coupon', body);
+    expect(requestServiceSpy.postRequest).toHaveBeenCalledOnceWith('http://prueba-tecnica-back-25watts-production.up.railway.app/create-coupon', body);
   });
 
   it('debería actualizar un cupón (updateCoupon)', async () => {
@@ -54,7 +54,7 @@ describe('CouponsService', () => {
 
     const result = await service.updateCoupon(1, body);
     expect(result).toEqual(mockResponse);
-    expect(requestServiceSpy.putRequest).toHaveBeenCalledOnceWith('http://localhost:3000/edit-coupon/1', body);
+    expect(requestServiceSpy.putRequest).toHaveBeenCalledOnceWith('http://prueba-tecnica-back-25watts-production.up.railway.app/edit-coupon/1', body);
   });
 
   it('debería eliminar un cupón (deleteCoupon)', async () => {
@@ -63,7 +63,7 @@ describe('CouponsService', () => {
 
     const result = await service.deleteCoupon(1);
     expect(result).toEqual(mockResponse);
-    expect(requestServiceSpy.deleteRequest).toHaveBeenCalledOnceWith('http://localhost:3000/delete-coupon/1');
+    expect(requestServiceSpy.deleteRequest).toHaveBeenCalledOnceWith('http://prueba-tecnica-back-25watts-production.up.railway.app/delete-coupon/1');
   });
 
   it('debería manejar errores (getAllCoupons)', async () => {

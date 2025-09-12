@@ -9,7 +9,7 @@ export class CouponsService {
   private requestService = inject(RequestService);
 
   getAllCoupons(): Promise<any> {
-    const source = `http://localhost:3000/coupons`;
+    const source = `https://prueba-tecnica-back-25watts-production.up.railway.app/coupons`;
 
     return new Promise((resolve, reject) => {
       this.requestService.getRequest(source).subscribe({
@@ -24,7 +24,7 @@ export class CouponsService {
   }
 
   createCoupon(body:any): Promise<any> {
-    const source = `http://localhost:3000/create-coupon`;
+    const source = `https://prueba-tecnica-back-25watts-production.up.railway.app/create-coupon`;
 
     return new Promise((resolve, reject) => {
       this.requestService.postRequest(source, body).subscribe({
@@ -39,7 +39,7 @@ export class CouponsService {
   }
 
   updateCoupon(id:number, body:any): Promise<any> {
-    const source = `http://localhost:3000/edit-coupon/${id}`;
+    const source = `https://prueba-tecnica-back-25watts-production.up.railway.app/edit-coupon/${id}`;
 
     return new Promise((resolve, reject) => {
       this.requestService.putRequest(source, body).subscribe({
@@ -54,7 +54,7 @@ export class CouponsService {
   }
 
   deleteCoupon(id:number): Promise<any> {
-    const source = `http://localhost:3000/delete-coupon/${id}`;
+    const source = `https://prueba-tecnica-back-25watts-production.up.railway.app/delete-coupon/${id}`;
 
     return new Promise((resolve, reject) => {
       this.requestService.deleteRequest(source).subscribe({
