@@ -22,9 +22,20 @@
   animation: fadeIn 0.3s ease-out;
 }
 
+
+
 .icon {
-  font-size: 1.4rem;
+  width: 30px;
+  height: 30px;
+  font-size: 1rem;
   flex-shrink: 0;
+  text-align: center;
+  border-radius: 50%;
+  color: #ffffff;
+  margin-top: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .content {
@@ -46,7 +57,8 @@
     background: #ffffff;
     background: linear-gradient(-90deg,rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 65%, rgba(203, 255, 194, 1) 100%);
     .icon { 
-    color: #22c55e;
+      background-color: #00ED51;
+      border: 5px solid #ffffff9f;
     }
 
 }
@@ -55,8 +67,8 @@
     background: #ffffff;
     background: linear-gradient(-90deg,rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 65%, rgba(255, 250, 107, 1) 100%);
   .icon { 
-    color: #facc15;
-
+    background-color: #FFD426;
+      border: 5px solid #feffc19f;
     }
 }
 
@@ -64,7 +76,9 @@
   background: #ffffff;
   background: linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 65%, rgba(255, 143, 143, 1) 100%);
   .icon { 
-    color: #ef4444; 
+    background-color: #F04248;
+    border: 5px solid #ff8da8f7;
+
     }
 }
 
